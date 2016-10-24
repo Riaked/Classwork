@@ -149,8 +149,60 @@ public class ArrayMethods {
          *          since the sequence '9,6,3,4,3' is in both arrays and is 5 integers long, it doesn't matter that the sequence begins at different indices 
          * longestSequence({9,6,1,4,3,6,7,9}, {9,6,5,8,3,6,7,0}) returns '3', since the sequence '3,6,7' is in both arrays and is 3 integers long
          * */
+        int longest = 1;
+        boolean isSequence = false;
+        int seqLength = 0;
+        if(array1.length > array2.length){
+            for(int i = 0; i < array1.length; i++){
+                for(int j = 0; j < array2.length; j++){
+                    //System.out.println("j = " + j + " i = " + i);
+                    if(array1[i] == array2[j]){
+                        isSequence = true;
+                    }else{
+                        isSequence = false;  
+                    }
+                    //System.out.println(isSequence);
+                    if(isSequence){
+                        seqLength ++;
+                        i++;
+                        //System.out.println("seqLength = " + seqLength);
+                    }else if(seqLength > longest){
+                        longest = seqLength;
+                        seqLength = 0;
+                    }else{
+                        seqLength = 0;
+                    }
+                }
+            }
+        }else{
+            for(int i = 0; i < array2.length; i++){
+                for(int j = 0; j < array1.length; j++){
+                    //System.out.println("j = " + j + " i = " + i);
+                    if(array2[i] == array1[j]){
+                        isSequence = true;
+                    }else{
+                        isSequence = false;  
+                    }
+                    //System.out.println(isSequence);
+                    if(isSequence){
+                        seqLength ++;
+                        i++;
+                        //System.out.println("seqLength = " + seqLength);
+                    }else if(seqLength > longest){
+                        longest = seqLength;
+                        seqLength = 0;
+                    }else{
+                        seqLength = 0;
+                    }
+                }
+            }
+        }
+        if(seqLength > longest){
+            return seqLength;
+        }else{
+            return longest;
+        }
         
-        return 0;
     }
 
     public static int[] generateDistinctItemsList(int n){
@@ -161,7 +213,22 @@ public class ArrayMethods {
          * contains only entries between 1 and 2n (inclusive) and has no duplicates
          * 
          * */
-        return null; 
+        int[] array = new int[n];
+        int random;
+        for(int i = 0; i < array.length; i++){
+            boolean original = false;
+            do{
+                random = (int)(Math.random()*(2*n))+1;
+                original = true;
+                for(int j = 0; j < array.length; j++){
+                    if(random == array[j]){
+                        original = false;
+                    }
+                }
+            }while(!original);
+            array[i] = random;
+        }
+        return array; 
     }
     
     
