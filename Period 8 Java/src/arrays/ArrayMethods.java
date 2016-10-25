@@ -12,9 +12,9 @@ public class ArrayMethods {
       * DO NOT spend hours and hours trying to fix perfect code just because my test
       * says that it isn't perfect!
       * */
-    	int[] list = {1, 2, 3, 4, 5, 8};
+    	double[] list = {1, 2, 3, 4, 5, 8};
     	int[] list2 = {1, 2, 3, 3};
-    	longestConsecutiveSequence(list);
+    	getStats(list);
     	
     }
     
@@ -75,6 +75,40 @@ public class ArrayMethods {
          * index 5 = the number of values below the mean
          * */
          double[] stats = new double[6];
+         double mean = 0;
+         double numsGreater = 0;
+         double max = array[0];
+         double min = array[0];
+         for (int i = 0; i < array.length; i++){
+        	 double total = 0;
+        	 mean = mean + array[i];
+        	 total = mean/array.length;
+        	 stats[0] = total;
+         }
+         for (int i = 1; i < array.length; i++){
+        	 if (array[i] > max){
+        		 max = array[i];
+        	 }
+        	 else if(array[i] < min){
+        		 min = array[i];
+        	 }
+        	 stats[1] = max;
+        	 stats[2] = min;
+         }
+         for (int i = 0; i < array.length; i++){
+        	 if (array[i] >= stats[0]){
+        		 numsGreater++;
+        	 }
+        	 stats[4] = numsGreater;
+         }
+         for (int i = 0; i < array.length; i++){
+        	 int numsLess = 0;
+        	 if (array[i] < stats[0]){
+        		 numsLess++;
+        	 }
+        	 stats[5] = numsLess;
+         }
+         System.out.println(stats[2]);
          return stats;
     }
     
@@ -176,7 +210,15 @@ public class ArrayMethods {
 
     //returns true if seq is found inside array2
     private static boolean checkSequence(int[] seq, int[] array2) {
-		// TODO Auto-generated method stub
+		A: for (int i = 0; i < array2.length; i++){
+			B: for (int j = 0; j < seq.length; j++){
+				if (seq[j] != array2[j+i]){
+					break;
+				}else if(j == seq.length-1){
+					return true;
+				}
+			}
+		}
 		return false;
 	}
 
