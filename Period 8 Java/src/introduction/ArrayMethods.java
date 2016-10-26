@@ -1,5 +1,7 @@
 package introduction;
 
+import java.util.Arrays;
+
 public class ArrayMethods {
 
     public static void main(String[] args) {
@@ -12,8 +14,6 @@ public class ArrayMethods {
       * DO NOT spend hours and hours trying to fix perfect code just because my test
       * says that it isn't perfect!
       * */
-    	int [] numbers = {2, 5, 1, 4};
-    	reverseOrder(numbers);
     }
     
     public static int searchUnsorted(int[] arrayToSearch, int key){
@@ -70,7 +70,46 @@ public class ArrayMethods {
          * index 4 = the number of values greater than or equal to the mean
          * index 5 = the number of values below the mean
          * */
-         double[] stats = new double[6];
+    	 double[] stats = new double[6];
+         double mean = 0;
+         double median = 0;
+         double numsGreater = 0;
+         double numsLess = 0;
+         double max = array[0];
+         double min = array[0];
+         double total = 0;
+         System.out.println(((array.length & 2) == 0));
+         for (int i = 0; i < array.length; i++){
+        	 total = total + array[i];
+        	 mean = total/array.length;
+        	 if (array[i] > max){
+        		 max = array[i];
+        	 }
+        	 if(array[i] < min){
+        		 min = array[i];
+        	 }
+        	 if ((array.length & 2) == 0){
+        		 median = (double)(array[(array.length/2)-1]+(array[(array.length/2)]))/2;
+        	 }
+        	 else{
+        		 median = (double)array[array.length/2];
+        	 }
+        	 stats[0] = mean;
+        	 stats[1] = max;
+        	 stats[2] = min;
+        	 stats[3] = median;
+         }
+         for (int i = 0; i < array.length; i++){
+        	 if (array[i] > mean){
+        		 numsGreater++;
+        	 }
+        	 if (array[i] < mean){
+        		 numsLess++;
+        	 }
+        	 stats[4] = numsGreater;
+        	 stats[5] = numsLess;
+         }
+         System.out.println(stats);
          return stats;
     }
     
@@ -92,6 +131,7 @@ public class ArrayMethods {
     		array[i] = array[(array.length-1) - i];
     		array[array.length-i-1] = placeholder;
     	}
+    	System.out.println(array);
     }
     
     public static int countDifferences(int[] array1, int[] array2){
@@ -126,16 +166,29 @@ public class ArrayMethods {
          * longestSequence({0,9,8,11,4,3,7,9}) returns '1', since there are no consecutive integers
          * */
         
-    	int num = 1;
-        for (int i = 0; i < array1.length; i++){
+    	int longSeq = 1;
+    	int seqLength = 1;
+        for (int i = 0; i < array1.length-1; i++){
+        	System.out.println(((array1[i+1] - array1[i]) == 1));
         	if ((array1[i+1] - array1[i]) == 1){
-        		num++;
+        		seqLength++;
+        	}
+        	else if (seqLength > longSeq){
+        		longSeq = seqLength;
+        		seqLength = 1;
         	}
         	else{
-        		num = 1;
+        		seqLength = 1;
         	}
         }
-        return num;
+        if (seqLength > longSeq){
+        	System.out.println(seqLength);
+        	return seqLength;
+        }
+        else{
+        	System.out.println(longSeq);
+        	return longSeq;
+        }
     }
 
     public static int longestSharedSequence(int[] array1, int[] array2){
@@ -149,25 +202,22 @@ public class ArrayMethods {
          *          since the sequence '9,6,3,4,3' is in both arrays and is 5 integers long, it doesn't matter that the sequence begins at different indices 
          * longestSequence({9,6,1,4,3,6,7,9}, {9,6,5,8,3,6,7,0}) returns '3', since the sequence '3,6,7' is in both arrays and is 3 integers long
          * */
-        int longest = 1;
-        boolean isSequence = false;
+        int longSeq = 1;
+        boolean isSeq = false;
         int seqLength = 0;
         if(array1.length > array2.length){
             for(int i = 0; i < array1.length; i++){
                 for(int j = 0; j < array2.length; j++){
-                    //System.out.println("j = " + j + " i = " + i);
                     if(array1[i] == array2[j]){
-                        isSequence = true;
+                        isSeq = true;
                     }else{
-                        isSequence = false;  
+                        isSeq = false;  
                     }
-                    //System.out.println(isSequence);
-                    if(isSequence){
-                        seqLength ++;
+                    if(isSeq){
+                        seqLength++;
                         i++;
-                        //System.out.println("seqLength = " + seqLength);
-                    }else if(seqLength > longest){
-                        longest = seqLength;
+                    }else if(seqLength > longSeq){
+                        longSeq = seqLength;
                         seqLength = 0;
                     }else{
                         seqLength = 0;
@@ -177,19 +227,16 @@ public class ArrayMethods {
         }else{
             for(int i = 0; i < array2.length; i++){
                 for(int j = 0; j < array1.length; j++){
-                    //System.out.println("j = " + j + " i = " + i);
                     if(array2[i] == array1[j]){
-                        isSequence = true;
+                        isSeq = true;
                     }else{
-                        isSequence = false;  
+                        isSeq = false;  
                     }
-                    //System.out.println(isSequence);
-                    if(isSequence){
+                    if(isSeq){
                         seqLength ++;
                         i++;
-                        //System.out.println("seqLength = " + seqLength);
-                    }else if(seqLength > longest){
-                        longest = seqLength;
+                    }else if(seqLength > longSeq){
+                        longSeq = seqLength;
                         seqLength = 0;
                     }else{
                         seqLength = 0;
@@ -197,14 +244,12 @@ public class ArrayMethods {
                 }
             }
         }
-        if(seqLength > longest){
+        if(seqLength > longSeq){
             return seqLength;
         }else{
-            return longest;
+            return longSeq;
         }
-        
     }
-
     public static int[] generateDistinctItemsList(int n){
         /**
          * This method needs to generate an int[] of length n that contains distinct, random integers
@@ -255,18 +300,12 @@ public class ArrayMethods {
          * CHALLENGE
          * For extra credit, make your method handle NEGATIVE n
          * */
-    	boolean inLoop = false;
-    	while (inLoop){
-    		if (n == 0){
-    			return;
-    		}
-    		else{
-    			for (int i = 0; i < array.length; i++){
-    				
-    			}
-    		}
+    	for (int i = 0; i < n; i++){
+	    	for (int j = 0; j < array.length - 1; j++){
+	    		int placeholder = array[j + 1];
+	    		array[j + 1] = array[j];
+	    		array[j] = placeholder;
+	    	}
     	}
     }
-    
-
 }
