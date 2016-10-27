@@ -295,7 +295,6 @@ public class ArrayMethods {
         return array; 
     }
     
-    
     public static void cycleThrough(int[] array, int n){
         /** This problem represents people moving through a line.
          * Once they get to the front of the line, they get what they've been waiting for, then they 
