@@ -14,6 +14,8 @@ public class ArrayMethods {
       * DO NOT spend hours and hours trying to fix perfect code just because my test
       * says that it isn't perfect!
       * */
+    	double [] list = {1, 2, 3, 4, 5, 8};
+    	getStats(list);
     }
     
     public static int searchUnsorted(int[] arrayToSearch, int key){
@@ -70,50 +72,66 @@ public class ArrayMethods {
          * index 4 = the number of values greater than or equal to the mean
          * index 5 = the number of values below the mean
          * */
-    	 double[] stats = new double[6];
-         double mean = 0;
-         double median = 0;
-         double numsGreater = 0;
-         double numsLess = 0;
-         double max = array[0];
-         double min = array[0];
-         double total = 0;
-         System.out.println(((array.length & 2) == 0));
-         for (int i = 0; i < array.length; i++){
-        	 total = total + array[i];
-        	 mean = total/array.length;
-        	 if (array[i] > max){
-        		 max = array[i];
-        	 }
-        	 if(array[i] < min){
-        		 min = array[i];
-        	 }
-        	 if ((array.length & 2) == 0){
-        		 median = (double)(array[(array.length/2)-1]+(array[(array.length/2)]))/2;
-        	 }
-        	 else{
-        		 median = (double)array[array.length/2];
-        	 }
-        	 stats[0] = mean;
-        	 stats[1] = max;
-        	 stats[2] = min;
-        	 stats[3] = median;
-         }
-         for (int i = 0; i < array.length; i++){
-        	 if (array[i] > mean){
-        		 numsGreater++;
-        	 }
-        	 if (array[i] < mean){
-        		 numsLess++;
-        	 }
-        	 stats[4] = numsGreater;
-        	 stats[5] = numsLess;
-         }
-         System.out.println(stats);
-         return stats;
+    	
+    	double[] stats = new double[6];
+    	double[] sortedList = selectionSort(array);
+        double mean = 0;
+        double median = 0;
+        double numsGreater = 0;
+        double numsLess = 0;
+        double total = 0;
+        for (int i = 0; i < sortedList.length; i++){
+       	 total = total + sortedList[i];
+       	 mean = total/sortedList.length;
+       	 if ((sortedList.length & 2) == 0){
+       		 median = (double)(sortedList[(sortedList.length/2)-1]+(sortedList[(sortedList.length/2)]))/2;
+       	 }
+       	 else{
+       		 median = (double)sortedList[sortedList.length/2];
+       	 }
+       	 stats[0] = mean;
+       	 stats[3] = median;
+        }
+        for (int i = 0; i < sortedList.length; i++){
+       	 if (sortedList[i] > mean){
+       		 numsGreater++;
+       	 }
+       	 if (sortedList[i] < mean){
+       		 numsLess++;
+       	 }
+       	 stats[1] = sortedList[sortedList.length-1];
+         stats[2] = sortedList[0];
+       	 stats[4] = numsGreater;
+       	 stats[5] = numsLess;
+        }
+        System.out.println(stats);
+        return stats;
+   }
+    
+    public static double[] selectionSort(double[] array){
+    	for (int i = 0; i < array.length - 1; i++){
+    	    int tempLowIndex = i;
+    	    for (int j = i + 1; j < array.length; j++){
+    	        if (array[j] < array[tempLowIndex]){
+    	            tempLowIndex = j;
+    	        }
+    	    }
+    	   if(tempLowIndex!=i){
+    	         swap(array, tempLowIndex, i);
+    	   } 
+    	}
+		return array;
     }
     
-    public static void reverseOrder(int[] array){
+    private static double[] swap(double[] arr, int i, int j) {
+		double placeholder = arr[j];
+		arr[j] = arr[i];
+		arr[i] = placeholder;
+		
+		return arr;
+	}
+
+	public static void reverseOrder(int[] array){
         /**
          * this method reverses the order of the array passed to it.
          * Not that this method does not have a return type. You do not need to copy the array first
@@ -250,6 +268,7 @@ public class ArrayMethods {
             return longSeq;
         }
     }
+    
     public static int[] generateDistinctItemsList(int n){
         /**
          * This method needs to generate an int[] of length n that contains distinct, random integers
@@ -259,19 +278,19 @@ public class ArrayMethods {
          * 
          * */
         int[] array = new int[n];
-        int random;
+        int random = 0;
         for(int i = 0; i < array.length; i++){
-            boolean original = false;
-            do{
-                random = (int)(Math.random()*(2*n))+1;
-                original = true;
-                for(int j = 0; j < array.length; j++){
+        	boolean isNew = false;
+        	while(!isNew){
+        		random = (int)(Math.random()*(2*n))+1;
+        		isNew = true;
+        		for(int j = 0; j < array.length; j++){
                     if(random == array[j]){
-                        original = false;
+                        isNew = false;
                     }
-                }
-            }while(!original);
-            array[i] = random;
+        		}
+        	}
+        	array[i] = random;
         }
         return array; 
     }
