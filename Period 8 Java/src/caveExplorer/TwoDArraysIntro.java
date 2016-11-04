@@ -14,10 +14,17 @@ public class TwoDArraysIntro {
 	static int treasurej;
 	
 	public static void main(String[] args) {
-		pic = new String[5][5];
+		pic = new String[6][5];
 		for (int row = 0; row < pic.length; row++){
 			for (int col = 0; col < pic[row].length; col++){
-				pic[row][col] = "[]";
+				pic[row][col] = " " +"___";
+				
+			}
+		}
+		for (int row = 1; row < pic.length; row++){
+			for (int col = 0; col < pic[0].length; col++){
+			pic[row][col] = "|___";
+			pic[row][pic[row].length-1] = "|___|";
 			}
 		}
 		arr2D = new String[5][5]; 
@@ -36,7 +43,7 @@ public class TwoDArraysIntro {
 	
 	private static void startExploring() {
 		while (true){
-			pic[starti][startj] = "[X]";
+			//pic[starti][startj] = "[X]";
 			printPic(pic);
 			System.out.println("You are in room " + arr2D[starti][startj]);
 			if (starti == treasurei && startj == treasurej){
