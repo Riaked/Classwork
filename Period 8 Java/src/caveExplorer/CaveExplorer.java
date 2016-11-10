@@ -23,6 +23,7 @@ public class CaveExplorer {
 		caves[1][2].setConnection(CaveRoomPd8.WEST, caves[1][1], new Door());
 		caves[1][2].setConnection(CaveRoomPd8.SOUTH, caves[2][2], new Door());
 		caves[1][2].setConnection(CaveRoomPd8.EAST, caves[1][3], new Door());
+		caves[2][2].setConnection(CaveRoomPd8.SOUTH, caves[3][2], new Door());
 		inventory = new InventoryNockles();
 		startExploring();
 		
