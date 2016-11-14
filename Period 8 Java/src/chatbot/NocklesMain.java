@@ -1,15 +1,22 @@
-package introduction;
+package chatbot;
 
 import java.util.Scanner;
 
-public class StringPractice {
+public class NocklesMain {
 
+	static String response;
+	static boolean inMainLoop;
 	static Scanner input;
 	static String user;
+	//Add group chatbots below (see example)
+	//static Chatbot school
 	
 	public static void main(String[] args) {
 		//demonstrateStringMethods();
 		createFields();
+		String s1 = " ";
+		String s2 = "a";
+		System.out.println(s1.compareTo(s2)); 
 		promptName();
 		promptForever();
 	}
@@ -21,20 +28,81 @@ public class StringPractice {
 	}
 	
 	public static void promptForever(){
-		while(true){
-			promptInput();
+		inMainLoop = true;
+		while (inMainLoop){
+			print("Hi, "+user+". How are you?");
+			response = promptInput();
+			if(findKeyword(response, "good", 0) >= 0){
+				print("That's wonderful. So glad you feel good.");
+			}
+//			else if(school.isTriggered(response)){
+//				print("School is great! Tell me about school.");
+//				inMainLoop = false;
+//				school.talk();
+//			}
+			
+			else{
+				print("I don't understand");
+			}
 		}
 	}
 	
-	public static void promptInput() {
-		print("Please type something, "+user+".");
+	public static int findKeyword(String searchString, String keyword, int startpsn) {
+		searchString = searchString.trim();
+		keyword = keyword.toLowerCase();
+		System.out.println("The phrase is "+searchString);
+		System.out.println("The keyword is "+keyword);
+		int psn = searchString.indexOf(keyword);
+		System.out.println("The keyword was found at "+psn);
+		while (psn >= 0){
+			String before = " ";
+			String after = " ";
+			if (psn > 0){
+				before = searchString.substring(psn-1, psn);
+				System.out.println("The character before is "+before);
+				}
+			if (psn + keyword.length() < searchString.length()){
+				after = searchString.substring(psn+keyword.length(), psn+keyword.length() + 1);
+				System.out.println("The character after is " + after);
+			}
+			if (before.compareTo("a") < 0 && after.compareTo("a") < 0 && noNegations(searchString, psn)){
+				System.out.println("Found "+keyword+" at " + psn);
+				return psn;
+			}
+			else{
+				psn = searchString.indexOf(keyword, psn + 1);
+				System.out.println("Did not find "+keyword+", checking position "+psn);
+			}
+		}
+			return -1;
+	}
+
+	private static boolean noNegations(String searchString, int psn) {
+		if (psn - 3 >= 0 && searchString.substring(psn - 3, psn).equals("no ") ){
+			return false;
+		}
+		if (psn - 4 >= 0 && searchString.substring(psn - 4, psn).equals("not ") ){
+			return false;
+		}
+		if (psn - 6 >= 0 && searchString.substring(psn - 6, psn).equals("never ") ){
+			return false;
+		}
+		if (psn - 4 >= 0 && searchString.substring(psn - 4, psn).equals("n't ") ){
+			return false;
+		}
+		return true;
+	}
+
+	public static String promptInput() {
 		String userInput = input.nextLine();
-		print("Congratulations. You've typed: "+userInput);	
+		return userInput;
 	}
 
 	public static void createFields(){
 		input = new Scanner(System.in);
 		user = "";
+		//initialize group chatbots below
+		//school = new HaoSchool();
 	}
 
 	public static void demonstrateStringMethods(){

@@ -33,6 +33,7 @@ public class Quiz1 {
 		for (int i = 2; i >= 0; i--){
 			if (waitForEntry().equals(password)){
 				System.out.println("You're in");
+				break;
 				}
 			else{
 				if (i == 0){
