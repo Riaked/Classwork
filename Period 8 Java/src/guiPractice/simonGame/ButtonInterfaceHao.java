@@ -16,4 +16,6 @@ public interface ButtonInterfaceHao extends Clickable {
 	public void setAction(Action a);
 
 	void highlight();
+
+	void dim();
 }

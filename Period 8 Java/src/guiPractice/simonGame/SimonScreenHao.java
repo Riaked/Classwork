@@ -72,11 +72,11 @@ public class SimonScreenHao extends ClickableScreen implements Runnable {
 								} catch (InterruptedException e) {
 									e.printStackTrace();
 								}
-								b.setColor(Color.black);
+								b.dim();
 							}
 						});
 						blink.start();
-						if (inputSubmitted && move.get(sequenceNumber).getButton == b){
+						if (inputSubmitted && move.get(sequenceNumber).getButton() == b){
 							sequenceNumber++;
 						}
 						else{
@@ -117,6 +117,31 @@ public class SimonScreenHao extends ClickableScreen implements Runnable {
 	public void run() {
 		label.setText("");
 		nextRound();
+		progress.setRound(roundNumber);
+		move.add(randomMove());
+		progress.setSequenceLength(move.size());
+		changeText("Simon's turn.");
+		label.setText("");
+		playSequence();
+		changeText("Your turn.");
+		label.setText("");
+		inputSubmitted = true;
+		sequenceNumber = 0;
+	}
+
+	private void playSequence() {
+		ButtonInterfaceHao b = null;
+		for(MoveInterfaceHao m: move){
+			if(b!=null)b.dim();
+			b = m.getButton();
+			b.highlight();
+			try {
+				Thread.sleep((long)(2000*(2.0/(roundNumber+2))));
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		b.dim();
 	}
 
 	private void nextRound() {

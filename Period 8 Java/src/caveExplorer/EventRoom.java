@@ -1,5 +1,7 @@
 package caveExplorer;
 
+import caveExplorer.Playable;
+
 public class EventRoom extends CaveRoomPd8 {
 	
 	private boolean eventHappened;

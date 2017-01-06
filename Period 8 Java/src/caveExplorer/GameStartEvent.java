@@ -1,5 +1,7 @@
 package caveExplorer;
 
+import caveExplorer.Playable;
+
 public class GameStartEvent implements Playable {
 	
 	private static final String[] SEQUENCE_1 = {"A little yellow mouse with brown stripes and a lightning shaped tail"
