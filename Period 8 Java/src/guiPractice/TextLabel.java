@@ -1,4 +1,4 @@
-package guiPractice.sampleGames;
+package guiPractice;
 
 import java.awt.Color;
 import java.awt.Font;

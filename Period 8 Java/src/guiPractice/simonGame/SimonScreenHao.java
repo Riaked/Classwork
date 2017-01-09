@@ -4,10 +4,10 @@ import java.awt.Color;
 import java.util.ArrayList;
 
 import guiPractice.ClickableScreen;
+import guiPractice.TextLabel;
 import guiPractice.components.Action;
 import guiPractice.components.Button;
 import guiPractice.components.Visible;
-import guiPractice.sampleGames.TextLabel;
 import guiPractice.whackAMole.MoleInterface;
 
 public class SimonScreenHao extends ClickableScreen implements Runnable {

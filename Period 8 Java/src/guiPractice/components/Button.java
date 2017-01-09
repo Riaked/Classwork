@@ -6,7 +6,7 @@ import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
-import guiPractice.sampleGames.TextLabel;
+import guiPractice.TextLabel;
 
 public class Button extends TextLabel implements Clickable{
 

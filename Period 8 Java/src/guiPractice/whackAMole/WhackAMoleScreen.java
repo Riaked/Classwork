@@ -3,9 +3,9 @@ package guiPractice.whackAMole;
 import java.util.ArrayList;
 
 import guiPractice.ClickableScreen;
+import guiPractice.TextLabel;
 import guiPractice.components.Action;
 import guiPractice.components.Visible;
-import guiPractice.sampleGames.TextLabel;
 
 public class WhackAMoleScreen extends ClickableScreen implements Runnable{
 
