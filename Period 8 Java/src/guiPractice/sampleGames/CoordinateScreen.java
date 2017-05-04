@@ -47,24 +47,24 @@ public class CoordinateScreen extends Screen implements MouseMotionListener, Mou
 //		mc.setVy(3);
 //		mc.setVx(4);
 //		mc.play();
-		
+		addAnimation(viewObjects);
 		viewObjects.add(picture);
 		viewObjects.add(label);
 		viewObjects.add(paragraph);
 		viewObjects.add(button);
 //		viewObjects.add(mc);
 		
-		addAnimation(viewObjects);
+		
 	}
 
 	private void addAnimation(ArrayList<Visible> viewObjects) {
 		AnimatedComponent a = new AnimatedComponent(0, 50, 150, 150);
 		try {
-			int numberInRow = 6;
-			int rows = 2;
+			int numberInRow = 11;
+			int rows = 1;
 			int w = 65;
 			int h = 65;
-			ImageIcon icon = new ImageIcon("resources/sampleImages/sprites.png");
+			ImageIcon icon = new ImageIcon("resources/sampleImages/sprites2.png");
 			//this will create a for loop that takes a 
 			//"sub-image" of the sprite grid
 			for (int i = 1; i < numberInRow * rows; i++) {
@@ -76,7 +76,7 @@ public class CoordinateScreen extends Screen implements MouseMotionListener, Mou
 				int y1 = topMargin + h * (i / numberInRow);
 				Graphics2D g = cropped.createGraphics();
 				g.drawImage(icon.getImage(), 0, 0, w, h, x1, y1, x1 + w, y1 + h, null);
-				a.addFrame(cropped, 100);
+				a.addFrame(cropped, 400);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

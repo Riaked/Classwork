@@ -28,7 +28,15 @@ public abstract class ClickableScreen extends Screen implements MouseListener {
 		}
 
 	}
-
+	public void moveToBack(Visible v){
+		super.moveToBack(v);
+		if(clickables.contains(v)){
+			clickables.remove(v);
+			clickables.add(0,(Clickable) v);
+			}
+		}
+	
+	
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
