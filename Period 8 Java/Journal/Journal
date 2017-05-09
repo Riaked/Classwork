@@ -18,3 +18,9 @@ May 8th
 	to actually make any sort of sense. My goal for tomorrow will be to finish those methods, and 
 	provided that Richard has finished making the different types of Characters, my methods may or 
 	may not be finished.
+May 9th
+	I have learned key listener which will enable us to move the character sprite throughout
+	the overworld as well as allow us to enable pop up text and screen switching through the 
+	keyboard instead of the mouse. I have also made a super class called Character which will implement
+	two interfaces called Player and Enemy which will help out my battle method. My goal for tomorrow will
+	be to continue working on the rest of the methods, and help Richard with the Character class.
