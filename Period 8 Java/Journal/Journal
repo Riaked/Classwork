@@ -24,3 +24,9 @@ May 9th
 	keyboard instead of the mouse. I have also made a super class called Character which will implement
 	two interfaces called Player and Enemy which will help out my battle method. My goal for tomorrow will
 	be to continue working on the rest of the methods, and help Richard with the Character class.
+May 10th
+	I have helped Richard create the Character class and have begun building the methods inside the class.
+	I have made the setStats, getStats, getName, and setName getters and setters for the super class
+	Character. This will allow my battle methods to get the names and the stats of the character in order 
+	to calculate the outcome of each and every battle to succession. My goal for tomorrow would to finish up this
+	class so my battle method would finish.
