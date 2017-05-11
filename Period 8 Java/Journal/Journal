@@ -30,3 +30,10 @@ May 10th
 	Character. This will allow my battle methods to get the names and the stats of the character in order 
 	to calculate the outcome of each and every battle to succession. My goal for tomorrow would to finish up this
 	class so my battle method would finish.
+May 11th
+	I have *almost* finished the Character class, and have successfully called the stats and the moves from
+	the player character. This makes my battle class easier to code because I now know that I can reliably 
+	get the stats and the moves in order to make the battle go smoothly. With Richard, we have also 
+	implemented the level up system, and adjusting stats accordingly. My goal for tomorrow would be to finish up 
+	the Character class, and the Enemy interface.
+	
