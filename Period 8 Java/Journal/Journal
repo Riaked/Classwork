@@ -36,4 +36,8 @@ May 11th
 	get the stats and the moves in order to make the battle go smoothly. With Richard, we have also 
 	implemented the level up system, and adjusting stats accordingly. My goal for tomorrow would be to finish up 
 	the Character class, and the Enemy interface.
+May 12th
+	I spent today drawing the 5th level of our game, and making a new class Monster which will be used for
+	all the monsters. This will give Joey a look at what he has to code for our project. My goal for Monday 
+	will be to finish up the Monster Class.
 	
