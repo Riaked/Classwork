@@ -40,4 +40,10 @@ May 12th
 	I spent today drawing the 5th level of our game, and making a new class Monster which will be used for
 	all the monsters. This will give Joey a look at what he has to code for our project. My goal for Monday 
 	will be to finish up the Monster Class.
+May 13th
+	I have helped Richard create the Monster Class and now it is working as intended. I can now get the monster
+	stats and moves. This helps my battle class because I can finally start working on it now that I can grab
+	both monster and player stats and moves to be able to calculate the outcome of each battle. My goal for
+	next time will be to finish up my battle class so we can actually test the results of battles and get the
+	battle system ongoing.
 	
