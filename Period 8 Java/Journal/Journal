@@ -53,5 +53,9 @@ Mat 17th
 	blink of an eye. No boss battle would be intense if you knew the result the moment you engage in battle,
 	and had no actual say in the battle itself. My goal for tomorrow will be to mess around with the run method 
 	in order to produce desireable results.
-
-	
+May 22nd
+	I have spent today talking about the Character Creation screen with Richard. We have also talked with Nockles
+	about the run method and learned about the thread things. I now know that I can look back at the Simon Lights
+	game and implement the wait method from back then in order to simulate a turn based battle. My goal for 
+	tomorrow will be to use this method and actually get some progress done.
+	will be 	
