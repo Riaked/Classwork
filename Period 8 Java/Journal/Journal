@@ -58,4 +58,9 @@ May 22nd
 	about the run method and learned about the thread things. I now know that I can look back at the Simon Lights
 	game and implement the wait method from back then in order to simulate a turn based battle. My goal for 
 	tomorrow will be to use this method and actually get some progress done.
-	will be 	
+May 23rd
+	I have fixed the battle class, and have gotten the battle to work correctly. It is now a turned based battle
+	that works completely. I have started working on the hud that is supposed to pop up with a button, then 
+	disappear after pressing the button again, provided that no other popups are occupying the screen. For tomorrow,
+	I will try to work on that and also work on the character creation screen with Richard in order to merge code
+	with Joey.
