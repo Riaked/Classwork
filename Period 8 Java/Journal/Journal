@@ -64,3 +64,8 @@ May 23rd
 	disappear after pressing the button again, provided that no other popups are occupying the screen. For tomorrow,
 	I will try to work on that and also work on the character creation screen with Richard in order to merge code
 	with Joey.
+May 24th
+	I have spent today with Richard working on the character creation screen. We have successfully made the computer
+	differentiate between which genders were selected. When the player presses the left or right arrow key and enter
+	after that, they will be asked a confirmation of their gender of their selection. I will continue to work on these
+	character creation screens with Richard.
