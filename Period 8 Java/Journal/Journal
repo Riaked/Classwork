@@ -69,3 +69,8 @@ May 24th
 	differentiate between which genders were selected. When the player presses the left or right arrow key and enter
 	after that, they will be asked a confirmation of their gender of their selection. I will continue to work on these
 	character creation screens with Richard.
+May 25th
+	I have spent today working on the name screen with Richard. We have successfully created a textbox that will 
+	display the name that is being typed while it is being time. We have also updated the GUI to use GUITeacher 
+	so we have a more vast amount of code. With the new GUI, there are many new functions and that will
+	benefit us in the future for future code. I will work on the rest of the screens with Richard next time.
