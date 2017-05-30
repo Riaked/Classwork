@@ -74,3 +74,7 @@ May 25th
 	display the name that is being typed while it is being time. We have also updated the GUI to use GUITeacher 
 	so we have a more vast amount of code. With the new GUI, there are many new functions and that will
 	benefit us in the future for future code. I will work on the rest of the screens with Richard next time.
+May 26th
+`	I spent today working on the Battle class with Richard and Mr. Nockles. We added new monsters to the floor 
+	which will allow the floors to contain more than one monster and possibly gang up on the player. My goal
+	for tomorrow will be to finish the method so the project will be finished.
