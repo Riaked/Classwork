@@ -74,7 +74,14 @@ May 25th
 	display the name that is being typed while it is being time. We have also updated the GUI to use GUITeacher 
 	so we have a more vast amount of code. With the new GUI, there are many new functions and that will
 	benefit us in the future for future code. I will work on the rest of the screens with Richard next time.
-May 26th
+May 30th
 `	I spent today working on the Battle class with Richard and Mr. Nockles. We added new monsters to the floor 
 	which will allow the floors to contain more than one monster and possibly gang up on the player. My goal
 	for tomorrow will be to finish the method so the project will be finished.
+May 31st
+	I spent today working on the Battle class with Richard. I have made a psuedo battle menu drop down which 
+	allows us to select a move whenever the "menu" is open and nothing when the menu isn't. Attacks are set into
+	two categories, the basic attack, which is the z key whenever a option isn't selected from the menu and the
+	actual moves which only work when the menu is open. The monsters also take the damage that they are supposed
+	to take, but the moves need a little tuning because one of the moves don't work as intended. I will continue
+	to fix up this class tomorrow.
