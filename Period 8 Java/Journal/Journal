@@ -85,3 +85,9 @@ May 31st
 	actual moves which only work when the menu is open. The monsters also take the damage that they are supposed
 	to take, but the moves need a little tuning because one of the moves don't work as intended. I will continue
 	to fix up this class tomorrow.
+June 1st
+	I have spent today fixing the battle method. The choosing moves and attacking values are all completed. The
+	only thing left is to make the player choose which direction in which they want them to attack. I will need 
+	to get the location from Joey and locations for the monsters in order to attack them for real. Since Joey 
+	has merged the code, the rest should be simple. I can see the light at the end of the tunnel. My goal for
+	tomorrow will be to finish things up.
