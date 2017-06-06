@@ -97,4 +97,11 @@ June 2nd
 	creation screen with Richard.
 June 5th
 	I spent today fixig up sprites with Richard. Will continue tomorrow
+June 6th
+	I spent today brainstorming how I would program how the player chooses who to attack. I ended up coding 
+	nothing for the entre period because I realized at the end I wasn't actually coding what I wanted to code.
+	I ended up putting in methods that have no use and wasn't relevant to what I wanted to do. I am attempting
+	to make monsters have a set amount of stats per floor and will make monsters have such stats everytime the
+	floor is increased. I will have to work on seperating everything from the PressAnyWhereToContinueScreen soon
+	so that it won't be stuck on that screen.
 	
